@@ -7,9 +7,10 @@ module.exports = (client) => {
         client.query('INSERT INTO session(start_time) values($1)',
                     [req.body.time],
                     (err, res) => {
+                        if (err) throw err;
                         console.log(res);
                     });
-        res.send(req.body);
+            if (res) res.json({success : "Inserted Successfully", status : 200});
     });
     return router;
 }
