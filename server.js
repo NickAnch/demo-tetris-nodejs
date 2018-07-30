@@ -14,7 +14,9 @@ const client = new pg.Client({
 const api = require('./routes/api');
 
 io.on('connection', (socket) => {
-    io.emit('message', {message:'new-message'});    
+    setInterval(() => {
+        io.emit('message', {message:'new-message'}); 
+    }, 3000);    
 });
 
 client.connect();
