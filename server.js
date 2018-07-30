@@ -12,10 +12,14 @@ const client = new pg.Client({
     port: 5432
   });
 const api = require('./routes/api');
+const figure = require('./models/figure');
 
 io.on('connection', (socket) => {
     setInterval(() => {
-        io.emit('message', {message:'new-message'}); 
+        io.emit('message', { figureColor: figure.
+                                          colors[getRandomInt(0, figure.colors.length)],
+                             figureShape: figure.
+                                          shapes[getRandomInt(0, figure.shapes.length)] }); 
     }, 3000);    
 });
 
@@ -39,6 +43,10 @@ app.use((err, req, res, next) => {
     console.log(err);
     res.status(422).send({error: err.message});
 });
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
 http.listen(3000, () => {
     console.log('Port: 3000');
