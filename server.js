@@ -15,7 +15,7 @@ const api = require('./routes/api');
 const figure = require('./models/figure');
 
 io.on('connection', (socket) => {
-  let interval = setInterval(() => {
+  const interval = setInterval(() => {
     io.emit('message',
       {
         figureColor: figure.
@@ -47,8 +47,9 @@ app.use(function (req, res, next) {
 app.use('/api', api(client));
 
 app.use((err, req, res, next) => {
-  console.log(err);
+  res.status(200).send({ success : res });
   res.status(422).send({ error: err.message });
+  console.log(err);
 });
 
 function getRandomInt(min, max) {

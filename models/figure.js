@@ -1,5 +1,4 @@
 const colors = ['orange', 'blue', 'yellow', 'green', 'purple', 'red'];
-
 const shapes = [
     [
         [0, 0, 0],
