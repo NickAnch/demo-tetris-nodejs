@@ -1,5 +1,32 @@
 const colors = ['orange', 'blue', 'yellow', 'green', 'purple', 'red'];
-const shapes = ['I', 'L', 'J', 'O', 'Z', 'T', 'S'];
+
+const shapes = [
+    [
+        [0, 0, 0],
+        [0, 1, 0],
+        [1, 1, 1]
+    ],
+    [
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 0]
+    ], 
+    [
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 1]
+    ],
+    [
+        [1, 1],
+        [1, 1]
+    ],
+    [
+        [1, 1, 0],
+        [0, 1, 0],
+        [0, 1, 1]
+    ],
+]
 
 function Figure(colors, shapes) {
     this.colors = colors;
